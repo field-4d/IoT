@@ -1,0 +1,36 @@
+2025-02-06 12:02:08,INFO,MongoDB client initialized successfully
+2025-02-06 12:02:08,INFO,Local bucket value retrieved
+2025-02-06 12:02:08,INFO,Accessed Devices_And_Users collection
+2025-02-06 12:02:08,INFO,IP address found for interface eth0: 128.139.16.92
+2025-02-06 12:02:08,INFO,Retrieved IP address: 128.139.16.92
+2025-02-06 12:02:08,INFO,Location retrieved for IP 128.139.16.92: {'country': 'IL', 'city': 'Jerusalem'}
+2025-02-06 12:02:08,INFO,Retrieved location: {'country': 'IL', 'city': 'Jerusalem'}
+2025-02-06 12:02:09,INFO,Document found with the MAC address
+2025-02-06 12:02:09,INFO,IP address already exists in the document
+2025-02-06 14:26:03,INFO,MongoDB client initialized successfully
+2025-02-06 14:26:03,INFO,Local bucket value retrieved
+2025-02-06 14:26:03,INFO,Accessed Devices_And_Users collection
+2025-02-06 14:26:03,INFO,IP address found for interface eth0: 128.139.16.92
+2025-02-06 14:26:03,INFO,Retrieved IP address: 128.139.16.92
+2025-02-06 14:26:03,INFO,Location retrieved for IP 128.139.16.92: {'country': 'IL', 'city': 'Jerusalem'}
+2025-02-06 14:26:03,INFO,Retrieved location: {'country': 'IL', 'city': 'Jerusalem'}
+2025-02-06 14:26:04,INFO,Document found with the MAC address
+2025-02-06 14:26:04,INFO,IP address already exists in the document
+2025-02-06 15:23:12,INFO,MongoDB client initialized successfully
+2025-02-06 15:23:12,INFO,Local bucket value retrieved
+2025-02-06 15:23:12,INFO,Accessed Devices_And_Users collection
+2025-02-06 15:23:12,INFO,IP address found for interface eth0: 128.139.16.92
+2025-02-06 15:23:12,INFO,Retrieved IP address: 128.139.16.92
+2025-02-06 15:23:12,INFO,Location retrieved for IP 128.139.16.92: {'country': 'IL', 'city': 'Jerusalem'}
+2025-02-06 15:23:12,INFO,Retrieved location: {'country': 'IL', 'city': 'Jerusalem'}
+2025-02-06 15:23:13,INFO,Document found with the MAC address
+2025-02-06 15:23:13,INFO,IP address already exists in the document
+2025-02-06 15:52:58,INFO,MongoDB client initialized successfully
+2025-02-06 15:52:58,INFO,Local bucket value retrieved
+2025-02-06 15:52:58,INFO,Accessed Devices_And_Users collection
+2025-02-06 15:52:58,INFO,IP address found for interface eth0: 128.139.16.92
+2025-02-06 15:52:58,INFO,Retrieved IP address: 128.139.16.92
+2025-02-06 15:52:58,INFO,Location retrieved for IP 128.139.16.92: {'country': 'IL', 'city': 'Jerusalem'}
+2025-02-06 15:52:58,INFO,Retrieved location: {'country': 'IL', 'city': 'Jerusalem'}
+2025-02-06 15:52:59,INFO,Document found with the MAC address
+2025-02-06 15:52:59,INFO,IP address already exists in the document
