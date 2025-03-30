@@ -1,0 +1,3 @@
+[submodule "contiki-ng"]
+	path = contiki-ng
+	url = git@github.com:field-4d/contiki-ng.git
