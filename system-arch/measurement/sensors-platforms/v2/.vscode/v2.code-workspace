@@ -1,0 +1,94 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"[Aramok's Black]": {
+				"statusBar.background": "#593f1ade"
+			},
+			"[Low Eye Strain Light]": {
+				"statusBarItem.prominentForeground": "#ffffff",
+				"statusBar.noFolderForeground": "#ffffff",
+				"terminalCursor.background": "#ffffff",
+				"terminal.foreground": "#ffffff",
+				"terminalCursor.foreground": "#cacaca76",
+				"terminal.background": "#1c1c1c",
+				"terminal.ansiBrightGreen": "#00ff15",
+				"terminal.ansiBrightBlue": "#00bbff",
+				"editor.background": "#f7f5e4",
+				"titleBar.activeBackground": "#593f1ade",
+				"sideBar.foreground": "#000000",
+				"statusBar.foreground": "#ffffff",
+				"statusBar.background": "#593f1a",
+				"statusBar.noFolderBackground": "#674c25f3",
+				"statusBarItem.activeBackground": "#ffffff",
+				"statusBarItem.hoverBackground": "#3fac62",
+				"tab.activeBackground": "#ffffff",
+				"statusBarItem.prominentBackground": "#ffffff",
+				"tab.inactiveBackground": "#919191",
+				"tab.activeForeground": "#1a1111",
+				"titleBar.activeForeground": "#ffffff",
+				"tab.unfocusedActiveBackground": "#ffffff",
+				"tab.inactiveForeground": "#1a0e0e",
+				"tab.unfocusedInactiveForeground": "#1b0b0b",
+				"activityBar.inactiveForeground": "#ffffff"
+			},
+			"[Solarized-light-fjs]": {
+				"terminal.background": "#121212",
+				"terminal.foreground": "#ffffff",
+				"editorPane.background": "#ff0000",
+				"titleBar.activeBackground": "#453929",
+				"statusBar.background": "#593f1ade",
+				"statusBar.noFolderBackground": "#5b4e3b",
+				"tab.activeForeground": "#000000",
+				"editor.background": "#ababab",
+				"titleBar.activeForeground": "#ffffff"
+			},
+			"[Default Light+]": {
+				"editorGroupHeader.tabsBackground": "#b8bbad99",
+				"titleBar.activeBackground": "#453929",
+				"sideBar.foreground": "#000000",
+				"statusBar.background": "#453929",
+				"statusBar.noFolderBackground": "#453929",
+				"tab.activeForeground": "#000000",
+				"tab.inactiveBackground": "#b6a48ade",
+				"tab.activeBorderTop": "#d4ff00",
+				"tab.activeBackground": "#ffffff",
+				"tab.inactiveForeground": "#000000",
+				"editor.background": "#ffffff",
+				"outputView.background": "#fffff7",
+				"sideBar.background": "#e6e8eab2",
+				"titleBar.activeForeground": "#ffffff",
+				"titleBar.inactiveBackground": "#ffffff",
+				"tab.unfocusedInactiveBackground": "#ffffff"
+			},
+			"terminal.background": "#231F20",
+			"terminal.foreground": "#D9D8D8",
+			"terminalCursor.background": "#D9D8D8",
+			"terminalCursor.foreground": "#D9D8D8",
+			"terminal.ansiBlack": "#231F20",
+			"terminal.ansiBlue": "#009DDC",
+			"terminal.ansiBrightBlack": "#737171",
+			"terminal.ansiBrightBlue": "#009DDC",
+			"terminal.ansiBrightCyan": "#85CEBC",
+			"terminal.ansiBrightGreen": "#00853E",
+			"terminal.ansiBrightMagenta": "#98005D",
+			"terminal.ansiBrightRed": "#EE2E24",
+			"terminal.ansiBrightWhite": "#FFFFFF",
+			"terminal.ansiBrightYellow": "#FFD204",
+			"terminal.ansiCyan": "#85CEBC",
+			"terminal.ansiGreen": "#00853E",
+			"terminal.ansiMagenta": "#98005D",
+			"terminal.ansiRed": "#EE2E24",
+			"terminal.ansiWhite": "#D9D8D8",
+			"terminal.ansiYellow": "#FFD204",
+			"activityBar.background": "#1B3136",
+			"titleBar.activeBackground": "#26444B",
+			"titleBar.activeForeground": "#F9FBFC"
+		},
+		"makefile.configureOnOpen": true
+	}
+}

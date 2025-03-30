@@ -1,0 +1,31 @@
+build/simplelink/imf4d/cc2650/obj/startup_cc13xx_cc26xx_gcc.o: \
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/dev/startup_cc13xx_cc26xx_gcc.c \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/DeviceFamily.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/inc/hw_types.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/inc/../inc/hw_chip_def.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/interrupt.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../inc/hw_ints.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../inc/hw_types.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../inc/hw_nvic.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/debug.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/cpu.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../inc/hw_memmap.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../inc/hw_cpu_scs.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../driverlib/rom.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../driverlib/../inc/hw_types.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/setup.h
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/dev/startup_cc13xx_cc26xx_gcc.c :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/DeviceFamily.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/inc/hw_types.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/inc/../inc/hw_chip_def.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/interrupt.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../inc/hw_ints.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../inc/hw_types.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../inc/hw_nvic.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/debug.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/cpu.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../inc/hw_memmap.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../inc/hw_cpu_scs.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../driverlib/rom.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/../driverlib/../inc/hw_types.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/setup.h :

@@ -1,0 +1,31 @@
+build/cc26x0-cc13x0/sensortag/cc2650/obj/ioc.o: \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/ioc.c \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/ioc.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_types.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_chip_def.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_memmap.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_ioc.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_ints.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/interrupt.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_nvic.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/debug.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/cpu.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_cpu_scs.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/rom.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/gpio.h \
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_gpio.h
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/ioc.c :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/ioc.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_types.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_chip_def.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_memmap.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_ioc.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_ints.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/interrupt.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_nvic.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/debug.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/cpu.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_cpu_scs.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/rom.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/driverlib/gpio.h :
+ ../../../../contiki-ng/arch/cpu/cc26x0-cc13x0/lib/cc26xxware/inc/hw_gpio.h :

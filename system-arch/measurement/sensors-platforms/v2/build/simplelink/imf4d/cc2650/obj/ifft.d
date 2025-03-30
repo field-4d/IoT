@@ -1,0 +1,79 @@
+build/simplelink/imf4d/cc2650/obj/ifft.o: \
+ ../../../../contiki-ng/os/lib/ifft.c ../../../../contiki-ng/os/contiki.h \
+ ../../../../contiki-ng/arch/platform/simplelink/cc13xx-cc26xx/contiki-conf.h \
+ project-conf.h \
+ ../../../../contiki-ng/arch/platform/simplelink/cc13xx-cc26xx/imf4d/board-conf.h \
+ ../../../../contiki-ng/arch/platform/simplelink/cc13xx-cc26xx/imf4d/cc2650/rf-conf.h \
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/./rf/rf.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/drivers/rf/RF.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/drivers/dpl/ClockP.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/drivers/dpl/SemaphoreP.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/drivers/utils/List.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/DeviceFamily.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/rf_common_cmd.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/rf_mailbox.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/rf_prop_cmd.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/rf_common_cmd.h \
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/rf_ble_cmd.h \
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/./cc13xx-cc26xx-conf.h \
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/./cc13xx-cc26xx-def.h \
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/../arm/cortex-m/cm3/cm3-def.h \
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/../arm/./arm-def.h \
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/./rf/rf.h \
+ ../../../../contiki-ng/os/contiki-default-conf.h \
+ ../../../../contiki-ng/os/sys/process.h \
+ ../../../../contiki-ng/os/sys/pt.h ../../../../contiki-ng/os/sys/lc.h \
+ ../../../../contiki-ng/os/sys/lc-switch.h \
+ ../../../../contiki-ng/os/sys/cc.h \
+ ../../../../contiki-ng/os/sys/cc-gcc.h \
+ ../../../../contiki-ng/os/sys/autostart.h \
+ ../../../../contiki-ng/os/sys/process.h \
+ ../../../../contiki-ng/os/sys/timer.h \
+ ../../../../contiki-ng/os/sys/clock.h \
+ ../../../../contiki-ng/os/sys/ctimer.h \
+ ../../../../contiki-ng/os/sys/etimer.h \
+ ../../../../contiki-ng/os/sys/etimer.h \
+ ../../../../contiki-ng/os/sys/rtimer.h \
+ ../../../../contiki-ng/os/dev/watchdog.h \
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/dev/rtimer-arch.h \
+ ../../../../contiki-ng/os/sys/pt.h ../../../../contiki-ng/os/sys/clock.h \
+ ../../../../contiki-ng/os/lib/ifft.h
+ ../../../../contiki-ng/os/lib/ifft.c ../../../../contiki-ng/os/contiki.h :
+ ../../../../contiki-ng/arch/platform/simplelink/cc13xx-cc26xx/contiki-conf.h :
+ project-conf.h :
+ ../../../../contiki-ng/arch/platform/simplelink/cc13xx-cc26xx/imf4d/board-conf.h :
+ ../../../../contiki-ng/arch/platform/simplelink/cc13xx-cc26xx/imf4d/cc2650/rf-conf.h :
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/./rf/rf.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/drivers/rf/RF.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/drivers/dpl/ClockP.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/drivers/dpl/SemaphoreP.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/drivers/utils/List.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/DeviceFamily.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/rf_common_cmd.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/rf_mailbox.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/rf_prop_cmd.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/rf_common_cmd.h :
+ ../../coresdk_cc13xx_cc26xx/source/ti/devices/cc26x0/driverlib/rf_ble_cmd.h :
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/./cc13xx-cc26xx-conf.h :
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/./cc13xx-cc26xx-def.h :
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/../arm/cortex-m/cm3/cm3-def.h :
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/../arm/./arm-def.h :
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/./rf/rf.h :
+ ../../../../contiki-ng/os/contiki-default-conf.h :
+ ../../../../contiki-ng/os/sys/process.h :
+ ../../../../contiki-ng/os/sys/pt.h ../../../../contiki-ng/os/sys/lc.h :
+ ../../../../contiki-ng/os/sys/lc-switch.h :
+ ../../../../contiki-ng/os/sys/cc.h :
+ ../../../../contiki-ng/os/sys/cc-gcc.h :
+ ../../../../contiki-ng/os/sys/autostart.h :
+ ../../../../contiki-ng/os/sys/process.h :
+ ../../../../contiki-ng/os/sys/timer.h :
+ ../../../../contiki-ng/os/sys/clock.h :
+ ../../../../contiki-ng/os/sys/ctimer.h :
+ ../../../../contiki-ng/os/sys/etimer.h :
+ ../../../../contiki-ng/os/sys/etimer.h :
+ ../../../../contiki-ng/os/sys/rtimer.h :
+ ../../../../contiki-ng/os/dev/watchdog.h :
+ /Users/ifrachi/GitHub/f4d/contiki-ng/arch/cpu/simplelink-cc13xx-cc26xx/dev/rtimer-arch.h :
+ ../../../../contiki-ng/os/sys/pt.h ../../../../contiki-ng/os/sys/clock.h :
+ ../../../../contiki-ng/os/lib/ifft.h :
