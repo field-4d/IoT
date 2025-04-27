@@ -329,6 +329,8 @@ PROCESS_THREAD(onboard_sensors_controller, ev, data)
                          advanced_cycle_count = 0; // reset the counter
                        } else {
                          event_to_post = EVENT_BASE_PACKET_READY;
+                        event_to_post = EVENT_BASE_PACKET_READY;
+
                        }
 #else
                        event_to_post = EVENT_BASE_PACKET_READY;
