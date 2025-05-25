@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------*/
-/*                                                 sensorsPlatform.h                                              */
+/*                      sensorsPlatform.h                                   */
 /*---------------------------------------------------------------------------*/
 #ifndef SENSORSPLATFORM_H
 #define SENSORSPLATFORM_H
@@ -18,12 +18,12 @@
 #if ADVANCED_SENSORS
 #include "f662-sensor.h"
 #endif
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 static bool ack_received = false;
 static bool is_registered = false;
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 typedef struct {
     int bmp_390_u18_pressure_int;
     int bmp_390_u18_temperature_int;
@@ -43,91 +43,106 @@ typedef struct {
     int opt_3001_u4_light_intensity_int;
     int opt_3001_u5_light_intensity_int;
 
-    int batmon_temperature_int;
+    int ztp_315_ambient_temperature_int;
+    int ztp_315_object_temperature_int;
+
     int batmon_battery_voltage_int;
 
     int package_number;
-    int rssi;
+
 } PayloadBaseBuffer;
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 typedef struct {
     int t6713_co2_value;      // payload_advanced_buffer[0]
     int f662_airflow_value;   // payload_advanced_buffer[1]
     int package_number;       // payload_advanced_buffer[2]
 } PayloadAdvancedBuffer;
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 static uint8_t bytes_base_payload[BASE_SENSORS_PAYLOAD_BUFFER_SIZE * BYTES_PER_INT];
 static uint8_t bytes_advanced_payload[ADVANCED_SENSORS_PAYLOAD_BUFFER_SIZE * BYTES_PER_INT];
 static uint8_t bytes_energest_payload[ENERGEST_PAYLOAD_BUFFER_SIZE * BYTES_PER_INT];
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
-static struct etimer  sensors_reading_timer, resend_timer,standby_etimer;
-static struct stimer delay_stimer;
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
+static struct etimer  sensors_reading_timer, resend_timer, timer;
+//static struct stimer delay_stimer;
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 PayloadBaseBuffer payloadBaseBuffer;
 #if ADVANCED_SENSORS
 PayloadAdvancedBuffer payloadAdvancedBuffer;
 #endif
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 static struct simple_udp_connection udp_conn;
 static uip_ipaddr_t dest_ipaddr;
 #define PING_KEY             BUTTON_HAL_ID_KEY_PING
 static   uint16_t ping[1]  =  { 16 };
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 static unsigned int period_count = 0;
 static int send_count = 0;
 static int base_pkt_counter = 0;
 static int advanced_pkt_counter = 0;
 static int temporary_value;
 static int  current_sensor = 0;
-/*-------------------------------------------------*/
-/* Declare Custom Events */
-/*-------------------------------------------------*/
-static process_event_t EVENT_BASE_PACKET_READY;
-static process_event_t EVENT_ADVANCED_PACKET_READY;
-/*---------------------------------------------------------------------------------------*
- || Helper macro to handle waiting for standby_etimer while listening for button events      ||
- *---------------------------------------------------------------------------------------*/
-#define WAIT_FOR_STANDBY_TIMER() do { \
-    while(!etimer_expired(&standby_etimer)) { \
-        PROCESS_WAIT_EVENT(); \
-        if(ev == button_hal_press_event) { \
-            button_hal_button_t* btn = (button_hal_button_t*)data; \
-            if (btn->unique_id == PING_KEY) { \
-                int rssi = sicslowpan_get_last_rssi(); \
-                printf("\n\rRSSI = %d", rssi); \
-                if (NETSTACK_ROUTING.node_is_reachable() && NETSTACK_ROUTING.get_root_ipaddr(&dest_ipaddr)) { \
-                    simple_udp_sendto(&udp_conn, ping, sizeof(ping), &dest_ipaddr); \
-                    printf("\n\rping: %d", (int)sizeof(ping)); \
-                } \
-            } \
-        } \
-    } \
-} while(0)
-/*-------------------------------------------------*/
-#define ETIMER_SET_AND_WAIT(etimer, interval) \
-  do { \
-    etimer_set(etimer, interval); \
-    PROCESS_WAIT_EVENT_UNTIL(ev == PROCESS_EVENT_TIMER && data == etimer); \
-  } while(0)
-/*-------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------*/
 // Define an enum to represent GPIO states
 typedef enum {
   GPIO_OFF = 0,
   GPIO_ON = 1
 } gpio_state_t;
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
+#define ETIMER_SET_AND_WAIT(etimer, interval) \
+  do { \
+    etimer_set(etimer, interval); \
+    PROCESS_WAIT_EVENT_UNTIL(ev == PROCESS_EVENT_TIMER && data == etimer); \
+  } while(0)
+/*---------------------------------------------------------------------------------------*/
+#define READ_SENSOR_WAIT(sensor, chan, errorcode, dst, delay) \
+  do { \
+    SENSORS_ACTIVATE(sensor); \
+    { \
+      int _v = (sensor).value(chan); \
+      (dst) = (_v != (errorcode)) ? _v : 999; \
+    } \
+    ETIMER_SET_AND_WAIT(&standby_etimer, (delay)); \
+    SENSORS_DEACTIVATE(sensor); \
+  } while(0)
+/*---------------------------------------------------------------------------------------*/
+///*---------------------------------------------------------------------------------------*
+// || Helper macro to handle waiting for standby_etimer while listening for button events      ||
+// *---------------------------------------------------------------------------------------*/
+//#define WAIT_FOR_STANDBY_TIMER() do { \
+//    while(!etimer_expired(&standby_etimer)) { \
+//        PROCESS_WAIT_EVENT(); \
+//        if(ev == button_hal_press_event) { \
+//            button_hal_button_t* btn = (button_hal_button_t*)data; \
+//            if (btn->unique_id == PING_KEY) { \
+//                        if (NETSTACK_ROUTING.node_is_reachable() && NETSTACK_ROUTING.get_root_ipaddr(&dest_ipaddr)) { \
+//                    simple_udp_sendto(&udp_conn, ping, sizeof(ping), &dest_ipaddr); \
+//                    printf("\n\rping: %d", (int)sizeof(ping)); \
+//                } \
+//            } \
+//        } \
+//    } \
+//} while(0)
+///*-------------------------------------------------*/
+//#define ETIMER_SET_AND_WAIT(etimer, interval) \
+//  do { \
+//    etimer_set(etimer, interval); \
+//    PROCESS_WAIT_EVENT_UNTIL(ev == PROCESS_EVENT_TIMER && data == etimer); \
+//  } while(0)
+///*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 bool GPIO_setEnable(uint32_t pin, gpio_state_t state) {
     // Write the desired state to the GPIO pin
     GPIO_writeDio(pin, state);
@@ -138,9 +153,9 @@ bool GPIO_setEnable(uint32_t pin, gpio_state_t state) {
     }
     return false; // Failure: state mismatch
 }
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 // Define a struct to hold the GPIO states
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 typedef struct {
   gpio_state_t dcdc_en;
   gpio_state_t ztp315_en;
@@ -150,9 +165,9 @@ typedef struct {
   gpio_state_t accel_en;
   gpio_state_t adc_on;
 } gpio_states_t;
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 // Function to read GPIO states
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 void read_gpio_states(gpio_states_t *states) {
   states->dcdc_en = GPIO_readDio(CC2650IMF4D_DCDC_EN) ? GPIO_ON : GPIO_OFF;
   states->ztp315_en = GPIO_readDio(CC2650IMF4D_ZTP315_EN) ? GPIO_ON : GPIO_OFF;
@@ -163,9 +178,9 @@ void read_gpio_states(gpio_states_t *states) {
   states->accel_en = GPIO_readDio(CC2650IMF4D_ACCEL_EN) ? GPIO_ON : GPIO_OFF;
   states->adc_on = GPIO_readDio(CC2650IMF4D_ADC_ON) ? GPIO_ON : GPIO_OFF;
 }
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 // Function to turn all GPIO pins off
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 void turn_all_gpio_off(void) {
   GPIO_writeDio(CC2650IMF4D_DCDC_EN, 0);
   GPIO_writeDio(CC2650IMF4D_ZTP315_EN, 0);
@@ -175,9 +190,9 @@ void turn_all_gpio_off(void) {
   GPIO_writeDio(CC2650IMF4D_ACCEL_EN, 0);
   GPIO_writeDio(CC2650IMF4D_ADC_ON, 0);
 }
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 // Function to turn all GPIO pins on
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 void turn_all_gpio_on(void) {
   GPIO_writeDio(CC2650IMF4D_DCDC_EN, 1);
   GPIO_writeDio(CC2650IMF4D_ZTP315_EN, 1);
@@ -188,9 +203,9 @@ void turn_all_gpio_on(void) {
   GPIO_writeDio(CC2650IMF4D_ADC_ON, 1);
 }
 gpio_states_t current_states;
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 static int are_other_sensors_active() {
     const struct sensors_sensor *s;
     for (s = sensors_first(); s != NULL; s = sensors_next(s)) {
@@ -200,27 +215,27 @@ static int are_other_sensors_active() {
     }
     return 0; // No active sensors
 }
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 void deactivate_all_active_sensors() {
   const struct sensors_sensor *s;
   for (s = sensors_first(); s != NULL; s = sensors_next(s)) {
       SENSORS_DEACTIVATE(*s); // Deactivate the sensor using macro
   }
 }
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 void activate_all_sensors() {
   const struct sensors_sensor *s;
   for (s = sensors_first(); s != NULL; s = sensors_next(s)) {
       SENSORS_ACTIVATE(*s); // Activate the sensor using macro
   }
 }
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 void int_to_bytes(int value, uint8_t *bytes) {
     // Assuming the system is little-endian.
     // Otherwise, byte order needs to be reversed.
@@ -229,9 +244,9 @@ void int_to_bytes(int value, uint8_t *bytes) {
     bytes[2] = (uint8_t)((value >> 16) & 0xFF);
     bytes[3] = (uint8_t)((value >> 24) & 0xFF);
 }
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 bool compareArrays(uint8_t *array1, uint8_t *array2, size_t start, size_t size) {
     for (size_t i = 0; i < size; i++) {
         if (array1[i] != array2[start + i]) {
@@ -240,9 +255,9 @@ bool compareArrays(uint8_t *array1, uint8_t *array2, size_t start, size_t size) 
     }
     return true;
 }
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 void convertPayloadToBytes(PayloadBaseBuffer *payloadBaseBuffer, uint8_t *bytes_base_payload, int payload_buffer_size) {
     int byte_index = 0;
     int *payload = (int*)payloadBaseBuffer; // Cast payloadBaseBuffer to int pointer
@@ -251,18 +266,16 @@ void convertPayloadToBytes(PayloadBaseBuffer *payloadBaseBuffer, uint8_t *bytes_
         byte_index += BYTES_PER_INT;
     }
 }
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 //
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 void uint32_to_bytes(uint32_t num, uint8_t *bytes) {
     bytes[0] = (uint8_t)(num >> 24);
     bytes[1] = (uint8_t)(num >> 16);
     bytes[2] = (uint8_t)(num >> 8);
     bytes[3] = (uint8_t)num;
 }
-/*-------------------------------------------------*/
-//
-/*-------------------------------------------------*/
+/*---------------------------------------------------------------------------------------*/
 void convertEnergstPayloadToBytes(uint32_t *payload, uint8_t *bytes_base_payload, int payload_buffer_size) {
     int byte_index = 0;
     for (int i = 0; i < payload_buffer_size; ++i) {
@@ -270,5 +283,7 @@ void convertEnergstPayloadToBytes(uint32_t *payload, uint8_t *bytes_base_payload
         byte_index += BYTES_PER_UINT32;
     }
 }
+/*---------------------------------------------------------------------------------------*/
+
 
 #endif /* SENSORSPLATFORM_H */
